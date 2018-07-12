@@ -96,9 +96,9 @@ application.properties:
     spring.kafka.consumer.properties.spring.json.trusted.packages=*
     spring.kafka.consumer.group-id=${my.group.id:default}
 
-As usual, you must specify the value-deserializer. Specifying [JsonDeserializer](https://docs.spring.io/spring-kafka/api/org/springframework/kafka/support/serializer/JsonDeserializer.html) allows our applicaiton to read JSON encoded message bodies, and return our domain objects as payload for processing.  Setting trusted.packages to the lowest level of the package your POJO's (e.g. com.example.pojos) are located in. Alternately set this property to '*' so that any POJO can become eligible for deserialization. Each consumer should have a unique ID if you're running in offset mode. To avoid offset commit conflicts, you should usually ensure that the groupId is unique for each application context.
+As usual, you must specify the value-deserializer. Specifying [JsonDeserializer](https://docs.spring.io/spring-kafka/api/org/springframework/kafka/support/serializer/JsonDeserializer.html) allows our applicaiton to read JSON encoded message bodies, and return our domain objects as payload for processing.  Setting trusted.packages to the lowest level of the package your POJO's (e.g. com.example.pojos) are located in. Alternately set this property to '*' so that any POJO can become eligible for deserialization. Each consumer should have a unique ID if you're running in offset mode. To avoid offset commit conflicts, you should usually ensure that the 'groupId' is unique for each application context.
 
-Running the consumer, we should expect to see the messages we put into the "foobar" topic earlier:
+Running the consumer, we should expect to see the messages we put into the 'foobar' topic earlier:
 
     2018-03-26 00:47:54.464  INFO 30872 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : partitions assigned: [foobar-0]
     GROUPID default, record = Customer(id=1522050390932, name=mario)
